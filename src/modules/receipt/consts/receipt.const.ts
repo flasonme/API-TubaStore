@@ -1,0 +1,13 @@
+export enum ReceiptStatus {
+  ORDERED = 'ORDERED',
+  CONFIRMED = 'CONFIRMED',
+  DELIVERING = 'DELIVERING',
+  DELIVERED = 'DELIVERED',
+  CANCELLED = 'CANCELLED',
+  COMPLETED = 'COMPLETED',
+}
+
+export enum PaymentMethod {
+  COD = 'COD',
+  VISA_MASTERCARD = 'VISA_MASTERCARD',
+}

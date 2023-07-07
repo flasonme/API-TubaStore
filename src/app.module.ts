@@ -8,6 +8,7 @@ import { AppController } from './app.controller';
 import { UserModule } from '@modules/user/user.module';
 import { ProductModule } from '@modules/product/product.module';
 import { VariantModule } from '@modules/variant/variant.module';
+import { CartModule } from '@modules/cart/cart.module';
 
 @Module({
   imports: [
@@ -26,6 +27,7 @@ import { VariantModule } from '@modules/variant/variant.module';
     UserModule,
     ProductModule,
     VariantModule,
+    CartModule,
   ],
   controllers: [AppController],
 })
