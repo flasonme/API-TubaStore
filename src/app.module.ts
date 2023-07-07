@@ -6,7 +6,8 @@ import { ApiConfigService } from '@shared/services/api-config.service';
 import { SharedModule } from '@shared/shared.module';
 import { AppController } from './app.controller';
 import { UserModule } from '@modules/user/user.module';
-import {ProductModule} from "@modules/product/product.module";
+import { ProductModule } from '@modules/product/product.module';
+import { VariantModule } from '@modules/variant/variant.module';
 
 @Module({
   imports: [
@@ -23,7 +24,8 @@ import {ProductModule} from "@modules/product/product.module";
     }),
     SharedModule,
     UserModule,
-    ProductModule
+    ProductModule,
+    VariantModule,
   ],
   controllers: [AppController],
 })
