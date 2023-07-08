@@ -11,22 +11,19 @@ import {
 } from '@nestjs/common';
 import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 import { BaseController } from '@common/base/base.controller';
-import { ReceiptService } from '@modules/receipt/services/receipt.service';
-import { ReceiptDto } from '@modules/receipt/dtos/receipt.dto';
+import { OrderService } from '@modules/order/services/order.service';
+import { OrderDto } from '@modules/order/dtos/order.dto';
 import { Auth, UUIDParam } from '@decorators/http.decorators';
 import { RoleType } from '@constants/role-type';
 import { ApiPageOkResponse } from '@decorators/api-page-ok-response.decorator';
 import { PageDto } from '@common/dto/page.dto';
 import { QueryOptionDto } from '@common/dto/query-options.dto';
-import { CreateReceiptDto } from '@modules/receipt/dtos/create-receipt.dto';
+import { CreateOrderDto } from '@modules/order/dtos/create-order.dto';
 
-@Controller('receipt')
-@ApiTags('receipt')
-export class ReceiptController extends BaseController<
-  ReceiptService,
-  ReceiptDto
-> {
-  constructor(readonly _service: ReceiptService) {
+@Controller('order')
+@ApiTags('order')
+export class OrderController extends BaseController<OrderService, OrderDto> {
+  constructor(readonly _service: OrderService) {
     super(_service);
   }
 
@@ -63,7 +60,7 @@ export class ReceiptController extends BaseController<
     status: HttpStatus.CREATED,
     description: 'Create',
   })
-  async create(@Body() params: CreateReceiptDto) {
+  async create(@Body() params: CreateOrderDto) {
     console.log('PARAM ======>', params);
     return await this._service.create(params);
   }
@@ -75,7 +72,7 @@ export class ReceiptController extends BaseController<
     status: HttpStatus.OK,
     description: 'Update',
   })
-  async update(@UUIDParam('id') id: string, @Body() params: ReceiptDto) {
+  async update(@UUIDParam('id') id: string, @Body() params: OrderDto) {
     return await this._service.update(id, params);
   }
 
