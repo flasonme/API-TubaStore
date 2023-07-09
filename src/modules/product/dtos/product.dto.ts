@@ -1,9 +1,13 @@
-import {AbstractDto} from "@common/dto/abstract.dto";
-import {IProduct} from "@modules/product/interfaces/product.interface";
-import {ProductCategory, ProductStatus} from "@modules/product/consts/product.const";
-import Product from "@modules/product/models/product.model";
+import { AbstractDto } from '@common/dto/abstract.dto';
+import { IProduct } from '@modules/product/interfaces/product.interface';
+import {
+  ProductCategory,
+  ProductStatus,
+} from '@modules/product/consts/product.const';
+import Product from '@modules/product/models/product.model';
+import { VariantDto } from '@modules/variant/dtos/variant.dto';
 
-export type ProductDtoOptions = Partial<{ isActive?: boolean }>
+export type ProductDtoOptions = Partial<{ isActive?: boolean }>;
 
 export class ProductDto extends AbstractDto implements IProduct {
   id?: string;
@@ -17,6 +21,8 @@ export class ProductDto extends AbstractDto implements IProduct {
   created_at?: Date;
   updated_at?: Date;
 
+  variants?: Array<VariantDto>;
+
   constructor(product: Product, options?: ProductDtoOptions) {
     super(product);
     this.name = product.name;
@@ -28,6 +34,6 @@ export class ProductDto extends AbstractDto implements IProduct {
     this.status = product.status;
     this.created_at = product.created_at;
     this.updated_at = product.updated_at;
+    this.variants = product.variants?.map((variant) => variant.toDto());
   }
-
 }

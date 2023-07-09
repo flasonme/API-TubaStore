@@ -1,5 +1,8 @@
 import { IsIn, IsNumber, IsOptional, IsString } from 'class-validator';
-import { VariantSize } from '@modules/variant/consts/variant.const';
+import {
+  VariantSize,
+  VariantStatus,
+} from '@modules/variant/consts/variant.const';
 
 export class UpdateVariableDto {
   @IsIn([...Object.values(VariantSize)])
@@ -21,6 +24,7 @@ export class UpdateVariableDto {
   @IsOptional()
   images: Array<string>;
 
+  @IsIn([...Object.values(VariantStatus)])
   @IsOptional()
-  status: string;
+  status: VariantStatus;
 }

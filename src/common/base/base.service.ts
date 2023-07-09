@@ -1,11 +1,9 @@
-import { BaseRepo } from '@common/base/base.repo';
 import { QueryOptionDto } from '@common/dto/query-options.dto';
 import { PageDto } from '@common/dto/page.dto';
 import { AbstractModel } from '@common/abstract.model';
 import { Repository } from 'sequelize-typescript';
 import { PageMetaDto } from '@common/dto/page-meta.dto';
 import { AbstractDto } from '@common/dto/abstract.dto';
-import { CreationAttributes } from 'sequelize';
 import { WhereOptions } from 'sequelize/types/model';
 
 export abstract class BaseService<
@@ -36,24 +34,28 @@ export abstract class BaseService<
     const result: M = await this._repository.findOne(queryOptions);
     return result.toDto();
   }
+
   async getById(
     id: string,
     queryOptions?: QueryOptionDto,
   ): Promise<DTO | null> {
-    const result = await this._repository.findByPk(id, queryOptions);
+    const result = await this._repository.findByPk<M>(id, queryOptions);
     return result?.toDto() || null;
   }
+
   async create(data: any): Promise<DTO> {
     const result = await this._repository.create<M>({
       ...data,
     });
     return result?.toDto();
   }
-  async update(id: string, data: Partial<DTO>): Promise<DTO> {
+
+  async update(id: string, data: any): Promise<DTO> {
     await this._repository.update(data, { where: { id } as WhereOptions<M> });
     const result = await this._repository.findByPk(id);
     return result.toDto();
   }
+
   async delete(id: string): Promise<number> {
     return this._repository.destroy({ where: { id } as WhereOptions<M> });
   }

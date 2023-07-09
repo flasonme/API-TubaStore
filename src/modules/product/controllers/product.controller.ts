@@ -1,21 +1,33 @@
-import {Body, Controller, Delete, Get, HttpCode, HttpStatus, Post, Put, Query} from "@nestjs/common";
-import {ApiOkResponse, ApiTags} from "@nestjs/swagger";
-import {BaseController} from "@common/base/base.controller";
-import {ProductService} from "@modules/product/services/product.service";
-import {ProductDto} from "@modules/product/dtos/product.dto";
-import {Auth, UUIDParam} from "@decorators/http.decorators";
-import {RoleType} from "@constants/role-type";
-import {ApiPageOkResponse} from "@decorators/api-page-ok-response.decorator";
-import {PageDto} from "@common/dto/page.dto";
-import {QueryOptionDto} from "@common/dto/query-options.dto";
-import {CreateProductDto} from "@modules/product/dtos/create-product.dto";
+import {
+  Body,
+  Controller,
+  Delete,
+  Get,
+  HttpCode,
+  HttpStatus,
+  Post,
+  Put,
+  Query,
+} from '@nestjs/common';
+import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { BaseController } from '@common/base/base.controller';
+import { ProductService } from '@modules/product/services/product.service';
+import { ProductDto } from '@modules/product/dtos/product.dto';
+import { Auth, UUIDParam } from '@decorators/http.decorators';
+import { RoleType } from '@constants/role-type';
+import { ApiPageOkResponse } from '@decorators/api-page-ok-response.decorator';
+import { PageDto } from '@common/dto/page.dto';
+import { QueryOptionDto } from '@common/dto/query-options.dto';
+import { CreateProductDto } from '@modules/product/dtos/create-product.dto';
+import { UpdateProductDto } from '@modules/product/dtos/update-product.dto';
 
 @Controller('product')
 @ApiTags('product')
-export class ProductController extends BaseController<ProductService, ProductDto> {
-  constructor(
-    readonly _service: ProductService
-  ) {
+export class ProductController extends BaseController<
+  ProductService,
+  ProductDto
+> {
+  constructor(readonly _service: ProductService) {
     super(_service);
   }
 
@@ -64,7 +76,7 @@ export class ProductController extends BaseController<ProductService, ProductDto
     status: HttpStatus.OK,
     description: 'Update',
   })
-  async update(@UUIDParam('id') id: string, @Body() params: ProductDto) {
+  async update(@UUIDParam('id') id: string, @Body() params: UpdateProductDto) {
     return await this._service.update(id, params);
   }
 
@@ -78,5 +90,4 @@ export class ProductController extends BaseController<ProductService, ProductDto
   async delete(@UUIDParam('id') id: string) {
     return await this._service.delete(id);
   }
-
 }

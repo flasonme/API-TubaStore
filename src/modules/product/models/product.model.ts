@@ -1,22 +1,27 @@
 import {
   AllowNull,
-  BelongsTo,
   Column,
   CreatedAt,
   DataType,
   Default,
+  DefaultScope,
   DeletedAt,
-  ForeignKey,
+  HasMany,
   PrimaryKey,
   Table,
-  UpdatedAt, Validate,
+  UpdatedAt,
+  Validate,
 } from 'sequelize-typescript';
 
 import { AbstractModel } from '@common/abstract.model';
-import {ProductDto} from "@modules/product/dtos/product.dto";
-import {UseDto} from "@decorators/use-dto.decorator";
-import {IProduct} from "@modules/product/interfaces/product.interface";
-import {ProductCategory, ProductStatus} from "@modules/product/consts/product.const";
+import { ProductDto } from '@modules/product/dtos/product.dto';
+import { UseDto } from '@decorators/use-dto.decorator';
+import { IProduct } from '@modules/product/interfaces/product.interface';
+import {
+  ProductCategory,
+  ProductStatus,
+} from '@modules/product/consts/product.const';
+import Variant from '@modules/variant/models/variant.model';
 
 @UseDto(ProductDto)
 @Table({
@@ -24,6 +29,12 @@ import {ProductCategory, ProductStatus} from "@modules/product/consts/product.co
   timestamps: true,
   paranoid: true,
 })
+@DefaultScope(() => ({
+  attributes: {
+    exclude: ['deleted_at'],
+  },
+  include: ['variants'],
+}))
 export default class Product
   extends AbstractModel<ProductDto>
   implements IProduct
@@ -35,31 +46,31 @@ export default class Product
 
   @Default('New Product')
   @Column
-  name: string
+  name: string;
 
   @Column(DataType.TEXT)
-  description: string
+  description: string;
 
   @AllowNull(false)
   @Column(DataType.STRING)
-  category: ProductCategory
+  category: ProductCategory;
 
   @Default(0)
-  @Validate({min: 0 })
+  @Validate({ min: 0 })
   @Column
-  price: number
+  price: number;
 
   @Default(1)
-  @Validate({min: 0 })
+  @Validate({ min: 0 })
   @Column
-  stock: number
+  stock: number;
 
   @Column(DataType.ARRAY(DataType.STRING))
-  images: Array<string>
+  images: Array<string>;
 
   @Default(ProductStatus.ACTIVE)
   @Column
-  status: ProductStatus
+  status: ProductStatus;
 
   @CreatedAt
   @Column
@@ -70,4 +81,7 @@ export default class Product
   @DeletedAt
   @Column
   deleted_at: Date;
+
+  @HasMany(() => Variant)
+  variants: Variant[];
 }

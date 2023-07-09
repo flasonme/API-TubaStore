@@ -19,6 +19,7 @@ import { ApiPageOkResponse } from '@decorators/api-page-ok-response.decorator';
 import { PageDto } from '@common/dto/page.dto';
 import { QueryOptionDto } from '@common/dto/query-options.dto';
 import { CreateVariantDto } from '@modules/variant/dtos/create-variant.dto';
+import { UpdateVariableDto } from '@modules/variant/dtos/update-variant.dto';
 
 @Controller('variant')
 @ApiTags('variant')
@@ -52,8 +53,7 @@ export class VariantController extends BaseController<
     @UUIDParam('id') id: string,
     @Query() queryOptionDto: QueryOptionDto,
   ) {
-    const result = await this._service.getById(id, queryOptionDto);
-    return result;
+    return await this._service.getById(id, queryOptionDto);
   }
 
   @Post()
@@ -64,7 +64,6 @@ export class VariantController extends BaseController<
     description: 'Create',
   })
   async create(@Body() params: CreateVariantDto) {
-    console.log('PARAM ======>', params);
     return await this._service.create(params);
   }
 
@@ -75,7 +74,7 @@ export class VariantController extends BaseController<
     status: HttpStatus.OK,
     description: 'Update',
   })
-  async update(@UUIDParam('id') id: string, @Body() params: VariantDto) {
+  async update(@UUIDParam('id') id: string, @Body() params: UpdateVariableDto) {
     return await this._service.update(id, params);
   }
 

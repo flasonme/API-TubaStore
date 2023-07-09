@@ -5,7 +5,10 @@ import {
   IsOptional,
   IsString,
 } from 'class-validator';
-import { VariantSize } from '@modules/variant/consts/variant.const';
+import {
+  VariantSize,
+  VariantStatus,
+} from '@modules/variant/consts/variant.const';
 
 export class CreateVariantDto {
   @IsNotEmpty()
@@ -31,6 +34,7 @@ export class CreateVariantDto {
   @IsOptional()
   images: Array<string>;
 
+  @IsIn([...Object.values(VariantStatus)])
   @IsOptional()
-  status: string;
+  status: VariantStatus;
 }

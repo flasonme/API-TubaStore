@@ -23,6 +23,7 @@ export class BaseController<
   DTO extends AbstractDto,
 > {
   constructor(public readonly _service: S) {}
+
   @Get('')
   @Auth([RoleType.USER])
   @HttpCode(HttpStatus.OK)
@@ -49,7 +50,7 @@ export class BaseController<
   }
 
   @Post()
-  // @Auth([RoleType.USER])
+  @Auth([RoleType.USER])
   @HttpCode(HttpStatus.CREATED)
   @ApiResponse({
     status: HttpStatus.CREATED,
@@ -66,7 +67,7 @@ export class BaseController<
     status: HttpStatus.OK,
     description: 'Update',
   })
-  async update(@UUIDParam('id') id: string, @Body() params: DTO) {
+  async update(@UUIDParam('id') id: string, @Body() params: any) {
     return await this._service.update(id, params);
   }
 
