@@ -1,5 +1,6 @@
 import {
   Column,
+  DataType,
   Default,
   ForeignKey,
   PrimaryKey,
@@ -20,10 +21,13 @@ import Variant from '@modules/variant/models/variant.model';
 })
 export default class Cart extends AbstractModel<CartDto> implements ICart {
   @PrimaryKey
+  @Default(DataType.UUIDV4)
+  @Column(DataType.UUID)
+  id: string;
+
   @Column
   user_id: string;
 
-  @PrimaryKey
   @ForeignKey(() => Product)
   @Column
   product_id: string;

@@ -4,7 +4,7 @@ services:
     container_name: tubastore_app
     image: node:18-alpine3.15
     working_dir: /app
-    command: sh -c "export TZ='Asia/Ho_Chi_Minh' && yarn && yarn sequelize:run && yarn start:dev"
+    command: sh -c "export TZ='Asia/Ho_Chi_Minh' && yarn && yarn migration:run && yarn start:dev"
     env_file:
       - .env
     ports:

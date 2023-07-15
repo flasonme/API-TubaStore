@@ -15,8 +15,8 @@ export enum PaymentMethod {
 }
 
 export enum PaymentStatus {
-  WAITING = 'WAITING',
-  PAID = 'PAID',
+  WAITING,
+  PAID,
 }
 
 export type OrderedProducts = {
