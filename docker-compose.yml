@@ -1,7 +1,7 @@
 version: "3.8"
 services:
-  nest_boilerplate_app:
-    container_name: nest-boilerplate
+  tubastore_app:
+    container_name: tubastore_app
     image: node:18-alpine3.15
     working_dir: /app
     command: sh -c "export TZ='Asia/Ho_Chi_Minh' && yarn && yarn sequelize:run && yarn start:dev"
@@ -10,16 +10,16 @@ services:
     ports:
       - "3000:3000"
     networks:
-      - nest-network
+      - tuba-network
     volumes:
       - ./:/app
       - .env:/app/.env
       - ./public:/app/public
     depends_on:
-      - postgres
-  postgres:
+      - tubastore_postgres
+  tubastore_postgres:
     image: postgres:15.3
-    container_name: postgres
+    container_name: tubastore_postgres
     restart: always
     environment:
       TZ: 'Asia/Ho_Chi_Minh'
@@ -33,7 +33,7 @@ services:
     env_file:
       - .env
     networks:
-      - nest-network
+      - tuba-network
 networks:
-  nest-network:
+  tuba-network:
     driver: 'bridge'
