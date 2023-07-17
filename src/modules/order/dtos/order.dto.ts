@@ -14,7 +14,7 @@ export class OrderDto extends AbstractDto implements IOrder {
   id?: string;
   order_code?: string;
   user_id?: string;
-  products?: OrderedProducts[];
+  products?: OrderedProducts;
   total_price?: number;
   status?: OrderStatus;
   payment_method?: PaymentMethod;

@@ -5,11 +5,18 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08fbb644-114b-45cd-a77f-9e06fc374ced" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d744f498-7bc4-441a-9fd9-ff330c15d499.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d744f498-7bc4-441a-9fd9-ff330c15d499.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d744f498-7bc4-441a-9fd9-ff330c15d499/storage_v2/_src_/database/tubastore.YYoflQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d744f498-7bc4-441a-9fd9-ff330c15d499/storage_v2/_src_/database/tubastore.YYoflQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/cart/models/cart.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/cart/models/cart.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/order/consts/order.const.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/consts/order.const.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/migrations/20230715135419-create_table_orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/migrations/20230715135419-create_table_orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/database/seeders/20230715140812-orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/seeders/20230715140812-orders.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/order/dtos/create-order.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/dtos/create-order.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/order/dtos/order.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/dtos/order.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/order/dtos/update-order.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/dtos/update-order.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/order/interfaces/order.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/interfaces/order.interface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/order/models/order.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/models/order.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/order/services/order.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/services/order.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,32 +72,33 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
-    &quot;last_opened_file_path&quot;: &quot;/home/flason/Documents/Open Source/vue-ecommercial&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_interpreter_path&quot;: &quot;/home/flason/.nvm/versions/node/v20.3.0/bin/node&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
-    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/flason/Documents/Jobs/DA1-HB/API-TubaStore/node_modules/prettier&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;settings.javascript.prettier&quot;,
-    &quot;ts.external.directory.path&quot;: &quot;/home/flason/Documents/Jobs/DA1-HB/API-TubaStore/node_modules/typescript/lib&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "false",
+    "git-widget-placeholder": "development",
+    "last_opened_file_path": "/home/flason/Documents/front-end-themes/Angular_Fuse/themeforest-97dKiDxu-fuse-angularjs-material-design-admin-template/fuse-demo-v17.2.0",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.standard": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.standard": "",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_interpreter_path": "/home/flason/.nvm/versions/node/v20.3.0/bin/node",
+    "nodejs_package_manager_path": "yarn",
+    "prettierjs.PrettierConfiguration.Package": "/home/flason/Documents/Jobs/DA1-HB/API-TubaStore/node_modules/prettier",
+    "settings.editor.selected.configurable": "settings.javascript.prettier",
+    "ts.external.directory.path": "/home/flason/Documents/Jobs/DA1-HB/API-TubaStore/node_modules/typescript/lib",
+    "vue.rearranger.settings.migration": "true"
   },
-  &quot;keyToStringList&quot;: {
-    &quot;DatabaseDriversLRU&quot;: [
-      &quot;postgresql&quot;
+  "keyToStringList": {
+    "DatabaseDriversLRU": [
+      "postgresql",
+      "sqlserver.localdb"
     ]
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/modules/order" />
@@ -118,7 +126,10 @@
       <workItem from="1689257333372" duration="149000" />
       <workItem from="1689257500603" duration="185000" />
       <workItem from="1689413672464" duration="3941000" />
-      <workItem from="1689426723600" duration="1427000" />
+      <workItem from="1689426723600" duration="4055000" />
+      <workItem from="1689486690588" duration="10000" />
+      <workItem from="1689490307437" duration="1079000" />
+      <workItem from="1689574516039" duration="5824000" />
     </task>
     <servers />
   </component>

@@ -1,6 +1,6 @@
 'use strict';
 
-/** @type {import('sequelize-cli').Migration} */
+/** @type {import("sequelize-cli").Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     /**
@@ -28,7 +28,7 @@ module.exports = {
         allowNull: false,
       },
       products: {
-        type: Sequelize.ARRAY(Sequelize.JSON),
+        type: Sequelize.JSONB,
         allowNull: false,
       },
       total_price: {

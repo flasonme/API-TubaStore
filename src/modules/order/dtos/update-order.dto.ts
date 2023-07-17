@@ -18,7 +18,7 @@ export class UpdateVariableDto {
   user_id?: string;
 
   @IsNotEmpty()
-  products?: OrderedProducts[];
+  products?: OrderedProducts;
 
   @IsNumber()
   @IsOptional()

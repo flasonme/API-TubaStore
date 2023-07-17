@@ -47,8 +47,8 @@ export default class Order extends AbstractModel<OrderDto> implements IOrder {
   user_id: string;
 
   @AllowNull(false)
-  @Column(DataType.ARRAY(DataType.JSONB))
-  products: OrderedProducts[];
+  @Column(DataType.JSONB)
+  products: OrderedProducts;
 
   @AllowNull(false)
   @Validate({ min: 0 })

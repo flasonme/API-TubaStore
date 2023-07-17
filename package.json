@@ -25,7 +25,8 @@
     "generate:migration": "npx sequelize-cli migration:generate --name",
     "generate:seed": "npx sequelize-cli seed:generate --name",
     "migration:run": "npx sequelize-cli db:migrate",
-    "seed:run": "npx sequelize-cli db:seed:all"
+    "seed:run": "npx sequelize-cli db:seed:all",
+    "seed:one": "npx sequelize-cli db:seed --seed"
   },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.350.0",
