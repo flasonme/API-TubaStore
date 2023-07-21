@@ -1,5 +1,5 @@
 import { Injectable } from '@nestjs/common';
-import { MODULE_UPLOAD } from '@constants/file';
+import { MODULE_UPLOAD } from '@constants/file.const';
 import { IUploadConfig } from '@interfaces/IFile';
 
 @Injectable()

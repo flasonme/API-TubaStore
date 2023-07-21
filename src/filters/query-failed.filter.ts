@@ -5,8 +5,6 @@ import type { FastifyReply } from 'fastify';
 import { STATUS_CODES } from 'http';
 import { QueryError } from 'sequelize';
 
-import { constraintErrors } from './constraint-errors';
-
 @Catch(QueryError)
 export class QueryFailedFilter implements ExceptionFilter<QueryError> {
   constructor(public reflector: Reflector) {}
@@ -22,9 +20,10 @@ export class QueryFailedFilter implements ExceptionFilter<QueryError> {
     response.status(status).send({
       statusCode: status,
       error: STATUS_CODES[status],
-      message: exception.constraint
-        ? constraintErrors[exception.constraint]
-        : undefined,
+      // message: exception.constraint
+      //   ? constraintErrors[exception.constraint]
+      //   : undefined,
+      message: exception.message,
     });
   }
 }

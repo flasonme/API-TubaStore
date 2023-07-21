@@ -13,7 +13,7 @@ import {
   Validate,
 } from 'sequelize-typescript';
 
-import { AbstractModel } from '@common/abstract.model';
+import { BaseModel } from '@common/base/base.model';
 import { VariantDto } from '@modules/variant/dtos/variant.dto';
 import { UseDto } from '@decorators/use-dto.decorator';
 import { IVariant } from '@modules/variant/interfaces/variant.interface';
@@ -29,10 +29,7 @@ import {
   timestamps: true,
   paranoid: true,
 })
-export default class Variant
-  extends AbstractModel<VariantDto>
-  implements IVariant
-{
+export default class Variant extends BaseModel<VariantDto> implements IVariant {
   @PrimaryKey
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)

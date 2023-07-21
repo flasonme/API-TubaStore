@@ -1,11 +1,7 @@
 import { Injectable } from '@nestjs/common';
-import type { UsersPageOptionsDto } from '../dtos/users-page-options.dto';
 import User from '../models/user.model';
-import { FindOptions } from 'sequelize';
 import { UserRegisterDto } from '../dtos/user-register.dto';
-import { PageDto } from '@common/dto/page.dto';
 import { UserDto } from '@modules/user/dtos/user.dto';
-import { PageMetaDto } from '@common/dto/page-meta.dto';
 import { BaseService } from '@common/base/base.service';
 import { InjectModel } from '@nestjs/sequelize';
 

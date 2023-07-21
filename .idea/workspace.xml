@@ -5,18 +5,41 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="08fbb644-114b-45cd-a77f-9e06fc374ced" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/src/common/base/base.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/dataSources/d744f498-7bc4-441a-9fd9-ff330c15d499.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d744f498-7bc4-441a-9fd9-ff330c15d499.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources/d744f498-7bc4-441a-9fd9-ff330c15d499/storage_v2/_src_/database/tubastore.YYoflQ/schema/public.abK9xQ.meta" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/d744f498-7bc4-441a-9fd9-ff330c15d499/storage_v2/_src_/database/tubastore.YYoflQ/schema/public.abK9xQ.meta" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/migrations/20230715135419-create_table_orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/migrations/20230715135419-create_table_orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/database/seeders/20230715140812-orders.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/database/seeders/20230715140812-orders.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/order/dtos/create-order.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/dtos/create-order.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/app.controller.spec.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/app.controller.spec.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/abstract.model.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/base/base.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/base/base.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/base/base.dto.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/base/base.repo.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/base/base.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/base/base.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/common/dto/abstract.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/common/dto/base.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/file.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/file.const.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decorators/property.decorators.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/decorators/property.decorators.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decorators/swagger.schema.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/decorators/swagger.schema.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/decorators/use-dto.decorator.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/decorators/use-dto.decorator.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filters/constraint-errors.ts" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/filters/query-failed.filter.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/filters/query-failed.filter.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/interfaces/IFile.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/interfaces/IFile.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/admin/dtos/admin.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/admin/dtos/admin.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/admin/models/admin.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/admin/models/admin.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/cart/dtos/cart.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/cart/dtos/cart.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/cart/models/cart.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/cart/models/cart.model.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/order/dtos/order.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/dtos/order.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/order/dtos/update-order.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/dtos/update-order.dto.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/order/interfaces/order.interface.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/interfaces/order.interface.ts" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/modules/order/models/order.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/models/order.model.ts" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/modules/order/services/order.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/order/services/order.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/product/dtos/product.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/product/dtos/product.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/product/models/product.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/product/models/product.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/controllers/auth.controller.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/user/controllers/auth.controller.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/dtos/login-payload.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/user/dtos/login-payload.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/dtos/user.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/user/dtos/user.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/models/user.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/user/models/user.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/user/services/user.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/user/services/user.service.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/variant/dtos/variant.dto.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/variant/dtos/variant.dto.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/modules/variant/models/variant.model.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/modules/variant/models/variant.model.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/providers/generator.provider.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/providers/generator.provider.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/shared/services/files.service.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/shared/services/files.service.ts" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -72,39 +95,42 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "WebServerToolWindowFactoryState": "false",
-    "git-widget-placeholder": "development",
-    "last_opened_file_path": "/home/flason/Documents/front-end-themes/Angular_Fuse/themeforest-97dKiDxu-fuse-angularjs-material-design-admin-template/fuse-demo-v17.2.0",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.standard": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.standard": "",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_interpreter_path": "/home/flason/.nvm/versions/node/v20.3.0/bin/node",
-    "nodejs_package_manager_path": "yarn",
-    "prettierjs.PrettierConfiguration.Package": "/home/flason/Documents/Jobs/DA1-HB/API-TubaStore/node_modules/prettier",
-    "settings.editor.selected.configurable": "settings.javascript.prettier",
-    "ts.external.directory.path": "/home/flason/Documents/Jobs/DA1-HB/API-TubaStore/node_modules/typescript/lib",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;false&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;development&quot;,
+    &quot;last_opened_file_path&quot;: &quot;/home/flason/Documents/Personal/the-black-backend-develop&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.standard&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.standard&quot;: &quot;&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_interpreter_path&quot;: &quot;/home/flason/.nvm/versions/node/v20.3.0/bin/node&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;yarn&quot;,
+    &quot;prettierjs.PrettierConfiguration.Package&quot;: &quot;/home/flason/Documents/Jobs/DA1-HB/API-TubaStore/node_modules/prettier&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;reference.settings.ide.settings.new.ui&quot;,
+    &quot;ts.external.directory.path&quot;: &quot;/home/flason/Documents/Jobs/DA1-HB/API-TubaStore/node_modules/typescript/lib&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   },
-  "keyToStringList": {
-    "DatabaseDriversLRU": [
-      "postgresql",
-      "sqlserver.localdb"
+  &quot;keyToStringList&quot;: {
+    &quot;DatabaseDriversLRU&quot;: [
+      &quot;postgresql&quot;,
+      &quot;sqlserver.localdb&quot;
     ]
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/src/modules/order" />
       <recent name="$PROJECT_DIR$/src/modules/receipt" />
       <recent name="$PROJECT_DIR$/src/modules/variable" />
       <recent name="$PROJECT_DIR$/src/modules" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/src/common/base" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -129,7 +155,15 @@
       <workItem from="1689426723600" duration="4055000" />
       <workItem from="1689486690588" duration="10000" />
       <workItem from="1689490307437" duration="1079000" />
-      <workItem from="1689574516039" duration="5824000" />
+      <workItem from="1689574516039" duration="6089000" />
+      <workItem from="1689597159925" duration="4430000" />
+      <workItem from="1689664732721" duration="115000" />
+      <workItem from="1689666914601" duration="212000" />
+      <workItem from="1689667143304" duration="1964000" />
+      <workItem from="1689684464758" duration="2248000" />
+      <workItem from="1689856612343" duration="2224000" />
+      <workItem from="1689910002121" duration="2527000" />
+      <workItem from="1689949969117" duration="1732000" />
     </task>
     <servers />
   </component>

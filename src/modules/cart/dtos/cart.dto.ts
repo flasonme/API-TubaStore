@@ -1,10 +1,10 @@
-import { AbstractDto } from '@common/dto/abstract.dto';
+import { BaseDto } from '@common/dto/base.dto';
 import { ICart } from '@modules/cart/interfaces/cart.interface';
 import Cart from '@modules/cart/models/cart.model';
 
 export type CartDtoOptions = Partial<{ isActive?: boolean }>;
 
-export class CartDto extends AbstractDto implements ICart {
+export class CartDto extends BaseDto implements ICart {
   user_id?: string;
   product_id?: string;
   variant_id?: string;

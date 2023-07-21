@@ -13,7 +13,7 @@ import {
   Validate,
 } from 'sequelize-typescript';
 
-import { AbstractModel } from '@common/abstract.model';
+import { BaseModel } from '@common/base/base.model';
 import { ProductDto } from '@modules/product/dtos/product.dto';
 import { UseDto } from '@decorators/use-dto.decorator';
 import { IProduct } from '@modules/product/interfaces/product.interface';
@@ -35,10 +35,7 @@ import Variant from '@modules/variant/models/variant.model';
   },
   include: ['variants'],
 }))
-export default class Product
-  extends AbstractModel<ProductDto>
-  implements IProduct
-{
+export default class Product extends BaseModel<ProductDto> implements IProduct {
   @PrimaryKey
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)

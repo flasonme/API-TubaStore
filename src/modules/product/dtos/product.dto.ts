@@ -1,4 +1,4 @@
-import { AbstractDto } from '@common/dto/abstract.dto';
+import { BaseDto } from '@common/dto/base.dto';
 import { IProduct } from '@modules/product/interfaces/product.interface';
 import {
   ProductCategory,
@@ -9,7 +9,7 @@ import { VariantDto } from '@modules/variant/dtos/variant.dto';
 
 export type ProductDtoOptions = Partial<{ isActive?: boolean }>;
 
-export class ProductDto extends AbstractDto implements IProduct {
+export class ProductDto extends BaseDto implements IProduct {
   id?: string;
   name?: string;
   description?: string;

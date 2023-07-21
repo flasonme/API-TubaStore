@@ -13,7 +13,7 @@ import {
   Validate,
 } from 'sequelize-typescript';
 
-import { AbstractModel } from '@common/abstract.model';
+import { BaseModel } from '@common/base/base.model';
 import { OrderDto } from '@modules/order/dtos/order.dto';
 import { UseDto } from '@decorators/use-dto.decorator';
 import { IOrder } from '@modules/order/interfaces/order.interface';
@@ -31,7 +31,7 @@ import {
   timestamps: true,
   paranoid: true,
 })
-export default class Order extends AbstractModel<OrderDto> implements IOrder {
+export default class Order extends BaseModel<OrderDto> implements IOrder {
   @PrimaryKey
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)

@@ -4,11 +4,12 @@ import {
   Get,
   HttpCode,
   HttpStatus,
-  Post, Res,
+  Post,
+  Res,
   UploadedFile,
   Version,
 } from '@nestjs/common';
-import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { ApiConsumes, ApiOkResponse, ApiTags } from '@nestjs/swagger';
 
 import { RoleType } from '../../../constants';
 import { ApiFile, Auth, AuthUser } from '../../../decorators';
@@ -17,7 +18,6 @@ import User from '../models/user.model';
 import { UserService } from '../services/user.service';
 import { AuthService } from '../services/auth.service';
 import { LoginPayloadDto } from '../dtos/login-payload.dto';
-import { UserLoginDto } from '../dtos/user-login.dto';
 import { UserRegisterDto } from '../dtos/user-register.dto';
 import { FilesService } from '@shared/services/files.service';
 import { UserDto } from '@modules/user/dtos/user.dto';
@@ -37,9 +37,8 @@ export class AuthController {
     type: LoginPayloadDto,
     description: 'User info with access token',
   })
-  async userLogin(
-    @Body() userLoginDto: UserLoginDto,
-  ): Promise<LoginPayloadDto> {
+  async userLogin(@Body() userLoginDto: any): Promise<LoginPayloadDto> {
+    console.log('userLoginDto', userLoginDto);
     const user = await this.authService.validateUser(userLoginDto);
 
     const token = this.authService.createAccessToken({
@@ -52,19 +51,20 @@ export class AuthController {
 
   @Post('register')
   @HttpCode(HttpStatus.OK)
-  @ApiOkResponse({ type: User, description: 'Successfully Registered' })
   @ApiFile({ name: 'avatar' }, { isRequired: false })
+  @ApiConsumes('multipart/form-data')
+  @ApiOkResponse({ type: UserDto, description: 'Successfully Registered' })
   async userRegister(
     @Body() userRegisterDto: UserRegisterDto,
     @Res() res,
     @UploadedFile() avatar?: IFile,
   ): Promise<UserDto> {
     if (avatar) {
-      const uploadConfig = this.filesService.getUploadConfig(avatar.fieldname);
+      const uploadConfig = this.filesService.getUploadConfig(avatar.fieldName);
       userRegisterDto.avatar = uploadConfig.url + avatar.filename;
     }
     const createdUser = await this.userService.create(userRegisterDto);
-    return res.status(HttpStatus.CREATED).send({data: createdUser.toDto()});
+    return res.status(HttpStatus.CREATED).send({ data: createdUser.toDto() });
   }
 
   @Version('1')
@@ -73,6 +73,6 @@ export class AuthController {
   @Auth([RoleType.USER, RoleType.ADMIN])
   @ApiOkResponse({ type: User, description: 'current user info' })
   getCurrentUser(@AuthUser() user: UserDto, @Res() res) {
-    return res.status(HttpStatus.OK).send({data: user});
+    return res.status(HttpStatus.OK).send({ data: user });
   }
 }

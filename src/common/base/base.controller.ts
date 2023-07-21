@@ -15,14 +15,14 @@ import { ApiPageOkResponse } from '@decorators/api-page-ok-response.decorator';
 import { PageDto } from '@common/dto/page.dto';
 import { QueryOptionDto } from '@common/dto/query-options.dto';
 import { ApiResponse } from '@nestjs/swagger';
-import { AbstractDto } from '@common/dto/abstract.dto';
+import { BaseDto } from '@common/dto/base.dto';
 import { CreationAttributes } from 'sequelize';
 
-export class BaseController<
+export abstract class BaseController<
   S extends BaseService<any, DTO>,
-  DTO extends AbstractDto,
+  DTO extends BaseDto,
 > {
-  constructor(public readonly _service: S) {}
+  protected constructor(public readonly _service: S) {}
 
   @Get('')
   @Auth([RoleType.USER])

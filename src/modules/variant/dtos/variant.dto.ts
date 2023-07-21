@@ -1,4 +1,4 @@
-import { AbstractDto } from '@common/dto/abstract.dto';
+import { BaseDto } from '@common/dto/base.dto';
 import { IVariant } from '@modules/variant/interfaces/variant.interface';
 import Variant from '@modules/variant/models/variant.model';
 import {
@@ -8,7 +8,7 @@ import {
 
 export type VariantDtoOptions = Partial<{ isActive?: boolean }>;
 
-export class VariantDto extends AbstractDto implements IVariant {
+export class VariantDto extends BaseDto implements IVariant {
   id?: string;
   product_id: string;
   size: VariantSize;

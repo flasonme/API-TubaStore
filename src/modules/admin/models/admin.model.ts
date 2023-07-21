@@ -6,19 +6,16 @@ import {
   DataType,
   Default,
   DeletedAt,
-  HasMany,
   PrimaryKey,
   Table,
   Unique,
   UpdatedAt,
 } from 'sequelize-typescript';
-
-import { RoleType } from '../../../constants';
 import type { IAdministrator } from '../interfaces/admin.interface';
 import { generateHash } from '@common/utils';
-import { AbstractModel } from '@common/abstract.model';
+import { BaseModel } from '@common/base/base.model';
 import { UseDto } from '@decorators/use-dto.decorator';
-import { AdministratorDto, AdministratorDtoOptions } from '@modules/admin/dtos/admin.dto';
+import { AdministratorDto } from '@modules/admin/dtos/admin.dto';
 
 @UseDto(AdministratorDto)
 @Table({
@@ -26,7 +23,10 @@ import { AdministratorDto, AdministratorDtoOptions } from '@modules/admin/dtos/a
   timestamps: true,
   paranoid: true,
 })
-export default class Administrator extends AbstractModel<AdministratorDto> implements IAdministrator {
+export default class Administrator
+  extends BaseModel<AdministratorDto>
+  implements IAdministrator
+{
   @PrimaryKey
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)

@@ -1,4 +1,4 @@
-import { v1 as uuid } from 'uuid';
+import { v4 as uuid } from 'uuid';
 
 export class GeneratorProvider {
   static uuid(): string {

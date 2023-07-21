@@ -6,7 +6,6 @@ import {
   DataType,
   Default,
   DeletedAt,
-  HasMany,
   PrimaryKey,
   Table,
   Unique,
@@ -16,9 +15,9 @@ import {
 import { RoleType } from '../../../constants';
 import type { IUser } from '../interfaces/user.interface';
 import { generateHash } from '@common/utils';
-import { AbstractModel } from '@common/abstract.model';
+import { BaseModel } from '@common/base/base.model';
 import { UseDto } from '@decorators/use-dto.decorator';
-import { UserDto, UserDtoOptions } from '@modules/user/dtos/user.dto';
+import { UserDto } from '@modules/user/dtos/user.dto';
 
 @UseDto(UserDto)
 @Table({
@@ -26,7 +25,7 @@ import { UserDto, UserDtoOptions } from '@modules/user/dtos/user.dto';
   timestamps: true,
   paranoid: true,
 })
-export default class User extends AbstractModel<UserDto> implements IUser {
+export default class User extends BaseModel<UserDto> implements IUser {
   @PrimaryKey
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)

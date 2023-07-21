@@ -1,4 +1,4 @@
-import { AbstractDto } from '@common/dto/abstract.dto';
+import { BaseDto } from '@common/dto/base.dto';
 import { IOrder } from '@modules/order/interfaces/order.interface';
 import Order from '@modules/order/models/order.model';
 import {
@@ -10,7 +10,7 @@ import {
 
 export type OrderDtoOptions = Partial<{ isActive?: boolean }>;
 
-export class OrderDto extends AbstractDto implements IOrder {
+export class OrderDto extends BaseDto implements IOrder {
   id?: string;
   order_code?: string;
   user_id?: string;

@@ -1,14 +1,14 @@
 import { QueryOptionDto } from '@common/dto/query-options.dto';
 import { PageDto } from '@common/dto/page.dto';
-import { AbstractModel } from '@common/abstract.model';
+import { BaseModel } from '@common/base/base.model';
 import { Repository } from 'sequelize-typescript';
 import { PageMetaDto } from '@common/dto/page-meta.dto';
-import { AbstractDto } from '@common/dto/abstract.dto';
+import { BaseDto } from '@common/dto/base.dto';
 import { WhereOptions } from 'sequelize/types/model';
 
 export abstract class BaseService<
-  M extends AbstractModel<DTO, never>,
-  DTO extends AbstractDto,
+  M extends BaseModel<DTO, never>,
+  DTO extends BaseDto,
 > {
   protected constructor(protected readonly _repository: Repository<M>) {}
 

@@ -1,11 +1,12 @@
-import type { AbstractModel } from '../abstract.model';
+import type { BaseModel } from '../base/base.model';
 import { MakeNullishOptional } from 'sequelize/types/utils';
 
-export class AbstractDto implements MakeNullishOptional<AbstractModel> {
+export class BaseDto implements MakeNullishOptional<BaseModel> {
   id?: string;
   created_at?: Date;
   updated_at?: Date;
-  constructor(model: AbstractModel, options?: { excludeFields?: boolean }) {
+
+  constructor(model: BaseModel, options?: { excludeFields?: boolean }) {
     this.id = model.id;
     this.created_at = model.created_at;
     this.updated_at = model.updated_at;

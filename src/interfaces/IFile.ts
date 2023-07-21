@@ -1,10 +1,10 @@
 export interface IFile {
   encoding: string;
   buffer: Buffer;
-  fieldname: string;
+  fieldName: string;
   filename: string;
   mimetype: string;
-  originalname: string;
+  originalName: string;
   size: number;
 }
 

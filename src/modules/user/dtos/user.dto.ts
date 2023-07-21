@@ -1,11 +1,11 @@
-import { AbstractDto } from '@common/dto/abstract.dto';
-import { RoleType } from '../../../constants';
-import type User from '../models/user.model';
+import { BaseDto } from "@common/dto/base.dto";
+import { RoleType } from "../../../constants";
+import type User from "../models/user.model";
 
 // TODO, remove this class and use constructor's second argument's type
 export type UserDtoOptions = Partial<{ isActive: boolean }>;
 
-export class UserDto extends AbstractDto {
+export class UserDto extends BaseDto {
   first_name?: string;
 
   last_name?: string;

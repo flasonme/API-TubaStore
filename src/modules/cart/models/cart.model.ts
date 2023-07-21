@@ -7,7 +7,7 @@ import {
   Table,
 } from 'sequelize-typescript';
 
-import { AbstractModel } from '@common/abstract.model';
+import { BaseModel } from '@common/base/base.model';
 import { CartDto } from '@modules/cart/dtos/cart.dto';
 import { UseDto } from '@decorators/use-dto.decorator';
 import { ICart } from '@modules/cart/interfaces/cart.interface';
@@ -19,7 +19,7 @@ import Variant from '@modules/variant/models/variant.model';
   tableName: 'carts',
   timestamps: false,
 })
-export default class Cart extends AbstractModel<CartDto> implements ICart {
+export default class Cart extends BaseModel<CartDto> implements ICart {
   @PrimaryKey
   @Default(DataType.UUIDV4)
   @Column(DataType.UUID)
