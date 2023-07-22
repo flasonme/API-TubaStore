@@ -29,6 +29,11 @@
     "seed:run": "npx sequelize-cli db:seed:all",
     "seed:one": "npx sequelize-cli db:seed --seed"
   },
+  "husky": {
+    "hooks": {
+      "commit-msg": "commitlint -E HUSKY_GIT_PARAMS"
+    }
+  },
   "dependencies": {
     "@aws-sdk/client-s3": "^3.350.0",
     "@fastify/compress": "^6.4.0",
@@ -64,6 +69,8 @@
     "uuid": "^9.0.0"
   },
   "devDependencies": {
+    "@commitlint/cli": "^17.6.7",
+    "@commitlint/config-angular": "^17.6.7",
     "@faker-js/faker": "^8.0.2",
     "@nestjs/cli": "^9.0.0",
     "@nestjs/schematics": "^9.0.0",
