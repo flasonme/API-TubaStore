@@ -10,3 +10,11 @@ export enum ProductStatus {
   ON_SALE = 'ON_SALE',
   OUT_OF_STOCK = 'OUT_OF_STOCK',
 }
+
+export enum ProductBrand {
+  NO_BRAND = 'NO_BRAND',
+  NIKE = 'NIKE',
+  ADIDAS = 'ADIDAS',
+  PUMA = 'PUMA',
+  REEBOK = 'REEBOK',
+}

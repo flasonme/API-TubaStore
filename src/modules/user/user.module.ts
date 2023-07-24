@@ -11,6 +11,7 @@ import { AuthController } from './controllers/auth.controller';
 import { AuthService } from './services/auth.service';
 import { JwtStrategy } from './strategies/jwt.strategy';
 import { PublicStrategy } from './strategies/public.strategy';
+import { ProfileModule } from '@modules/user/sub_modules/profile/profile.module';
 
 @Module({
   imports: [
@@ -34,6 +35,7 @@ import { PublicStrategy } from './strategies/public.strategy';
       }),
       inject: [ApiConfigService],
     }),
+    ProfileModule,
   ],
   controllers: [UserController, AuthController],
   exports: [UserService, AuthService, JwtModule],

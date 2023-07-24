@@ -12,7 +12,7 @@ import {
   PaymentStatus,
 } from '@modules/order/consts/order.const';
 
-export class UpdateVariableDto {
+export class UpdateOrderDto {
   @IsString()
   @IsNotEmpty()
   user_id?: string;

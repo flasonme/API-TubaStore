@@ -6,14 +6,12 @@ import {
   HttpStatus,
   Post,
   Res,
-  UploadedFile,
   Version,
 } from '@nestjs/common';
-import { ApiConsumes, ApiOkResponse, ApiTags } from '@nestjs/swagger';
+import { ApiOkResponse, ApiTags } from '@nestjs/swagger';
 
 import { RoleType } from '../../../constants';
-import { ApiFile, Auth, AuthUser } from '../../../decorators';
-import { IFile } from '@interfaces/IFile';
+import { Auth, AuthUser } from '../../../decorators';
 import User from '../models/user.model';
 import { UserService } from '../services/user.service';
 import { AuthService } from '../services/auth.service';
@@ -51,20 +49,20 @@ export class AuthController {
 
   @Post('register')
   @HttpCode(HttpStatus.OK)
-  @ApiFile({ name: 'avatar' }, { isRequired: false })
-  @ApiConsumes('multipart/form-data')
+  // @ApiFile({ name: 'avatar' }, { isRequired: false })
+  // @ApiConsumes('multipart/form-data')
   @ApiOkResponse({ type: UserDto, description: 'Successfully Registered' })
   async userRegister(
     @Body() userRegisterDto: UserRegisterDto,
     @Res() res,
-    @UploadedFile() avatar?: IFile,
+    // @UploadedFile() avatar?: IFile,
   ): Promise<UserDto> {
-    if (avatar) {
-      const uploadConfig = this.filesService.getUploadConfig(avatar.fieldName);
-      userRegisterDto.avatar = uploadConfig.url + avatar.filename;
-    }
+    // if (avatar) {
+    //   const uploadConfig = this.filesService.getUploadConfig(avatar.fieldName);
+    //   userRegisterDto.avatar = uploadConfig.url + avatar.filename;
+    // }
     const createdUser = await this.userService.create(userRegisterDto);
-    return res.status(HttpStatus.CREATED).send({ data: createdUser.toDto() });
+    return res.status(HttpStatus.CREATED).send({ data: createdUser });
   }
 
   @Version('1')

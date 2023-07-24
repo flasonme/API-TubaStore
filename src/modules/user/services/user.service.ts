@@ -4,18 +4,33 @@ import { UserRegisterDto } from '../dtos/user-register.dto';
 import { UserDto } from '@modules/user/dtos/user.dto';
 import { BaseService } from '@common/base/base.service';
 import { InjectModel } from '@nestjs/sequelize';
+import { Repository, Sequelize } from 'sequelize-typescript';
+import { Transaction } from 'sequelize';
+import { ProfileService } from '@modules/user/sub_modules/profile/services/profile.service';
 
 @Injectable()
 export class UserService extends BaseService<User, UserDto> {
   constructor(
     @InjectModel(User)
-    private userModel: typeof User,
+    private userRepo: Repository<User>,
+    private _sequelize: Sequelize,
+    private _profileService: ProfileService,
   ) {
-    super(userModel);
+    super(userRepo);
   }
 
-  async create(userRegisterDto: UserRegisterDto): Promise<User> {
-    return await this._repository.create({ ...userRegisterDto });
+  async create(userRegisterDto: UserRegisterDto): Promise<UserDto> {
+    const transaction: Transaction = await this._sequelize.transaction();
+    try {
+      const user = await this._repository.create({ ...userRegisterDto });
+      await this._profileService.transactionalCreate(user.id, transaction);
+      await transaction.commit();
+      return user.toDto();
+    } catch (error) {
+      await transaction.rollback();
+      // TODO: Create DatabaseExceptionFilter
+      throw error;
+    }
   }
 
   // async getMany(

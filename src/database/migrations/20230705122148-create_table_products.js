@@ -1,6 +1,6 @@
 'use strict';
 
-/** @type {import('sequelize-cli').Migration} */
+/** @type {import("sequelize-cli").Migration} */
 module.exports = {
   async up(queryInterface, Sequelize) {
     /**
@@ -15,12 +15,21 @@ module.exports = {
         primaryKey: true,
         defaultValue: Sequelize.UUIDV4,
       },
-      name: {
+      title: {
         type: Sequelize.STRING(255),
+        allowNull: false,
+      },
+      sku: {
+        type: Sequelize.STRING(255),
+        unique: true,
         allowNull: false,
       },
       description: {
         type: Sequelize.TEXT,
+      },
+      brand: {
+        type: Sequelize.STRING,
+        defaultValue: 'NO_BRAND',
       },
       category: {
         type: Sequelize.STRING,
@@ -31,16 +40,31 @@ module.exports = {
         allowNull: false,
         defaultValue: 0,
       },
+      sale: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: false,
+      },
+      discount: {
+        type: Sequelize.INTEGER,
+        defaultValue: 0,
+      },
       stock: {
         type: Sequelize.INTEGER,
         allowNull: false,
         defaultValue: 0,
+      },
+      new: {
+        type: Sequelize.BOOLEAN,
+        defaultValue: true,
       },
       images: {
         type: Sequelize.ARRAY(Sequelize.STRING),
       },
       status: {
         type: Sequelize.STRING,
+      },
+      tags: {
+        type: Sequelize.ARRAY(Sequelize.STRING),
       },
       created_at: Sequelize.DATE,
       updated_at: Sequelize.DATE,

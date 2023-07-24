@@ -23,7 +23,7 @@ import { CreateOrderDto } from '@modules/order/dtos/create-order.dto';
 @Controller('order')
 @ApiTags('order')
 export class OrderController extends BaseController<OrderService, OrderDto> {
-  constructor(readonly _service: OrderService) {
+  constructor(protected readonly _service: OrderService) {
     super(_service);
   }
 
@@ -49,8 +49,7 @@ export class OrderController extends BaseController<OrderService, OrderDto> {
     @UUIDParam('id') id: string,
     @Query() queryOptionDto: QueryOptionDto,
   ) {
-    const result = await this._service.getById(id, queryOptionDto);
-    return result;
+    return await this._service.getById(id, queryOptionDto);
   }
 
   @Post()

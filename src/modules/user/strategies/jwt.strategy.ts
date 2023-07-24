@@ -4,8 +4,7 @@ import { ExtractJwt, Strategy } from 'passport-jwt';
 
 import type { RoleType } from '../../../constants';
 import { TokenType } from '../../../constants';
-import { ApiConfigService } from '../../../shared/services/api-config.service';
-import type User from '../models/user.model';
+import { ApiConfigService } from '@shared/services/api-config.service';
 import { UserService } from '../services/user.service';
 import { UserDto } from '@modules/user/dtos/user.dto';
 

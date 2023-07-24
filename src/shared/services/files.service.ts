@@ -1,6 +1,6 @@
 import { Injectable } from '@nestjs/common';
 import { MODULE_UPLOAD } from '@constants/file.const';
-import { IUploadConfig } from '@interfaces/IFile';
+import { IUploadConfig } from '@interfaces/file.interface';
 
 @Injectable()
 export class FilesService {

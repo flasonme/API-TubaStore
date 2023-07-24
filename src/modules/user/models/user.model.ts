@@ -5,7 +5,9 @@ import {
   CreatedAt,
   DataType,
   Default,
+  DefaultScope,
   DeletedAt,
+  HasOne,
   PrimaryKey,
   Table,
   Unique,
@@ -18,6 +20,7 @@ import { generateHash } from '@common/utils';
 import { BaseModel } from '@common/base/base.model';
 import { UseDto } from '@decorators/use-dto.decorator';
 import { UserDto } from '@modules/user/dtos/user.dto';
+import Profile from '@modules/user/sub_modules/profile/models/profile.model';
 
 @UseDto(UserDto)
 @Table({
@@ -25,6 +28,9 @@ import { UserDto } from '@modules/user/dtos/user.dto';
   timestamps: true,
   paranoid: true,
 })
+@DefaultScope(() => ({
+  include: [Profile],
+}))
 export default class User extends BaseModel<UserDto> implements IUser {
   @PrimaryKey
   @Default(DataType.UUIDV4)
@@ -44,15 +50,6 @@ export default class User extends BaseModel<UserDto> implements IUser {
   @Column
   role: RoleType;
 
-  @Column
-  first_name: string;
-
-  @Column
-  last_name: string;
-
-  @Default('some-avatar.png')
-  @Column
-  avatar: string;
   @CreatedAt
   created_at: Date;
   @UpdatedAt
@@ -60,13 +57,11 @@ export default class User extends BaseModel<UserDto> implements IUser {
   @DeletedAt
   deleted_at: Date;
 
-  @Column(DataType.VIRTUAL)
-  get full_name(): string {
-    return `${this.first_name} ${this.last_name}`;
-  }
-
   @BeforeCreate
   static async hashPassword(instance: User): Promise<void> {
     instance.password = await generateHash(instance.password);
   }
+
+  @HasOne(() => Profile)
+  profile: Profile;
 }

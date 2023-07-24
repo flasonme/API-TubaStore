@@ -1,5 +1,3 @@
-import Cart from '@modules/cart/models/cart.model';
-
 export enum OrderStatus {
   ORDERED = 1,
   CONFIRMED,
@@ -20,6 +18,6 @@ export enum PaymentStatus {
 }
 
 export type OrderedProducts = {
-  carts: Cart[];
+  carts: any;
   total_price: Number;
 };

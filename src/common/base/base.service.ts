@@ -10,7 +10,7 @@ export abstract class BaseService<
   M extends BaseModel<DTO, never>,
   DTO extends BaseDto,
 > {
-  protected constructor(protected readonly _repository: Repository<M>) {}
+  protected constructor(protected _repository: Repository<M>) {}
 
   async getMany(queryOptions?: QueryOptionDto): Promise<DTO[] | PageDto<DTO>> {
     let result: M[] = [];

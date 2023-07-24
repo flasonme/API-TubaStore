@@ -12,7 +12,7 @@ export abstract class BaseModel<DTO extends BaseDto = BaseDto, O = never>
 {
   @PrimaryKey
   @Column
-  id!: string;
+  id?: string;
   created_at?: Date;
   updated_at?: Date;
   private dtoClass?: Constructor<DTO, [BaseModel, O?]>;

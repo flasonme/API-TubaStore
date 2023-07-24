@@ -9,6 +9,7 @@ import {
   HasMany,
   PrimaryKey,
   Table,
+  Unique,
   UpdatedAt,
   Validate,
 } from 'sequelize-typescript';
@@ -18,6 +19,7 @@ import { ProductDto } from '@modules/product/dtos/product.dto';
 import { UseDto } from '@decorators/use-dto.decorator';
 import { IProduct } from '@modules/product/interfaces/product.interface';
 import {
+  ProductBrand,
   ProductCategory,
   ProductStatus,
 } from '@modules/product/consts/product.const';
@@ -43,7 +45,11 @@ export default class Product extends BaseModel<ProductDto> implements IProduct {
 
   @Default('New Product')
   @Column
-  name: string;
+  title: string;
+
+  @Unique(true)
+  @Column
+  sku: string;
 
   @Column(DataType.TEXT)
   description: string;
@@ -52,15 +58,32 @@ export default class Product extends BaseModel<ProductDto> implements IProduct {
   @Column(DataType.STRING)
   category: ProductCategory;
 
+  @Default(ProductBrand.NO_BRAND)
+  @Column
+  brand: ProductBrand;
+
   @Default(0)
   @Validate({ min: 0 })
   @Column
   price: number;
 
+  @Default(false)
+  @Column
+  sale: boolean;
+
+  @Default(0)
+  @Validate({ min: 0 })
+  @Column
+  discount: number;
+
   @Default(1)
   @Validate({ min: 0 })
   @Column
   stock: number;
+
+  @Default(true)
+  @Column
+  new: boolean;
 
   @Column(DataType.ARRAY(DataType.STRING))
   images: Array<string>;
@@ -68,6 +91,9 @@ export default class Product extends BaseModel<ProductDto> implements IProduct {
   @Default(ProductStatus.ACTIVE)
   @Column
   status: ProductStatus;
+
+  @Column(DataType.ARRAY(DataType.STRING))
+  tags: Array<string>;
 
   @CreatedAt
   @Column

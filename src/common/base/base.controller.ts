@@ -7,6 +7,8 @@ import {
   Post,
   Put,
   Query,
+  Res,
+  UploadedFile,
 } from '@nestjs/common';
 import { BaseService } from '@common/base/base.service';
 import { Auth, UUIDParam } from '@decorators/http.decorators';
@@ -17,12 +19,13 @@ import { QueryOptionDto } from '@common/dto/query-options.dto';
 import { ApiResponse } from '@nestjs/swagger';
 import { BaseDto } from '@common/dto/base.dto';
 import { CreationAttributes } from 'sequelize';
+import { IFile } from '@interfaces/file.interface';
 
 export abstract class BaseController<
   S extends BaseService<any, DTO>,
   DTO extends BaseDto,
 > {
-  protected constructor(public readonly _service: S) {}
+  protected constructor(protected readonly _service: S) {}
 
   @Get('')
   @Auth([RoleType.USER])
@@ -67,7 +70,12 @@ export abstract class BaseController<
     status: HttpStatus.OK,
     description: 'Update',
   })
-  async update(@UUIDParam('id') id: string, @Body() params: any) {
+  async update(
+    @UUIDParam('id') id: string,
+    @Body() params: any,
+    @Res() res,
+    @UploadedFile() avatar?: IFile,
+  ) {
     return await this._service.update(id, params);
   }
 
