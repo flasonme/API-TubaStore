@@ -1,31 +1,15 @@
 import { TokenPayloadDto } from './token-payload.dto';
 import { UserDto } from '@modules/user/dtos/user.dto';
 import { HttpStatus } from '@nestjs/common';
+import { BaseResponseDto } from '@common/dto/base-response.dto';
 
-export class LoginPayloadDto {
-  // @ApiProperty()
-  statusCode: HttpStatus;
-
-  // @ApiProperty({ type: Symbol, required: false })
-  msg?: string;
-
-  // @ApiProperty({
-  //   type: {
-  //     user: UserDto,
-  //     token: TokenPayloadDto,
-  //   },
-  // })
+export class LoginPayloadDto extends BaseResponseDto {
   data: {
     user: UserDto;
     token: TokenPayloadDto;
   };
 
   constructor(user: UserDto, token: TokenPayloadDto) {
-    this.statusCode = HttpStatus.OK;
-    this.msg = 'Successfully Logged In';
-    this.data = {
-      user,
-      token,
-    };
+    super(HttpStatus.OK, { user, token }, 'Successfully Logged In');
   }
 }

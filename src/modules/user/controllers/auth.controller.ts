@@ -19,6 +19,7 @@ import { LoginPayloadDto } from '../dtos/login-payload.dto';
 import { UserRegisterDto } from '../dtos/user-register.dto';
 import { FilesService } from '@shared/services/files.service';
 import { UserDto } from '@modules/user/dtos/user.dto';
+import { BaseResponseDto } from '@common/dto/base-response.dto';
 
 @Controller('auth')
 @ApiTags('auth')
@@ -56,13 +57,13 @@ export class AuthController {
     @Body() userRegisterDto: UserRegisterDto,
     @Res() res,
     // @UploadedFile() avatar?: IFile,
-  ): Promise<UserDto> {
+  ): Promise<BaseResponseDto<UserDto>> {
     // if (avatar) {
     //   const uploadConfig = this.filesService.getUploadConfig(avatar.fieldName);
     //   userRegisterDto.avatar = uploadConfig.url + avatar.filename;
     // }
     const createdUser = await this.userService.create(userRegisterDto);
-    return res.status(HttpStatus.CREATED).send({ data: createdUser });
+    return new BaseResponseDto(HttpStatus.CREATED, createdUser, 'Created');
   }
 
   @Version('1')
@@ -71,6 +72,6 @@ export class AuthController {
   @Auth([RoleType.USER, RoleType.ADMIN])
   @ApiOkResponse({ type: User, description: 'current user info' })
   getCurrentUser(@AuthUser() user: UserDto, @Res() res) {
-    return res.status(HttpStatus.OK).send({ data: user });
+    return new BaseResponseDto(HttpStatus.OK, user, 'Verified');
   }
 }
