@@ -22,11 +22,15 @@ export class UserService extends BaseService<User, UserDto> {
   async create(userRegisterDto: UserRegisterDto): Promise<UserDto> {
     const transaction: Transaction = await this._sequelize.transaction();
     try {
-      const user = await this._repository.create({ ...userRegisterDto });
+      const user = await this._repository.create(
+        { ...userRegisterDto },
+        { transaction },
+      );
       await this._profileService.transactionalCreate(user.id, transaction);
       await transaction.commit();
       return user.toDto();
     } catch (error) {
+      console.log('ERROR ==> ', error);
       await transaction.rollback();
       // TODO: Create DatabaseExceptionFilter
       throw error;

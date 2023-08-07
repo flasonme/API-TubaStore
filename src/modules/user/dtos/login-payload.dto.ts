@@ -3,7 +3,7 @@ import { UserDto } from '@modules/user/dtos/user.dto';
 import { HttpStatus } from '@nestjs/common';
 import { BaseResponseDto } from '@common/dto/base-response.dto';
 
-export class LoginPayloadDto extends BaseResponseDto {
+export class LoginPayloadDto extends BaseResponseDto<any> {
   data: {
     user: UserDto;
     token: TokenPayloadDto;

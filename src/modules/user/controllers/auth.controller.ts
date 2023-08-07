@@ -55,9 +55,8 @@ export class AuthController {
   @ApiOkResponse({ type: UserDto, description: 'Successfully Registered' })
   async userRegister(
     @Body() userRegisterDto: UserRegisterDto,
-    @Res() res,
     // @UploadedFile() avatar?: IFile,
-  ): Promise<BaseResponseDto<UserDto>> {
+  ): Promise<BaseResponseDto<any>> {
     // if (avatar) {
     //   const uploadConfig = this.filesService.getUploadConfig(avatar.fieldName);
     //   userRegisterDto.avatar = uploadConfig.url + avatar.filename;

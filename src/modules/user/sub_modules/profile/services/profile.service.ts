@@ -13,6 +13,7 @@ export class ProfileService extends BaseService<Profile, ProfileDto> {
     @InjectModel(Profile)
     private profileRepo: Repository<Profile>,
   ) {
+    profileRepo.removeAttribute('id');
     super(profileRepo);
   }
 

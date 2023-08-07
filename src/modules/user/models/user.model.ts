@@ -29,7 +29,7 @@ import Profile from '@modules/user/sub_modules/profile/models/profile.model';
   paranoid: true,
 })
 @DefaultScope(() => ({
-  include: [Profile],
+  include: ['profile'],
 }))
 export default class User extends BaseModel<UserDto> implements IUser {
   @PrimaryKey
