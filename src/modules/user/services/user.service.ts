@@ -30,7 +30,6 @@ export class UserService extends BaseService<User, UserDto> {
       await transaction.commit();
       return user.toDto();
     } catch (error) {
-      console.log('ERROR ==> ', error);
       await transaction.rollback();
       // TODO: Create DatabaseExceptionFilter
       throw error;

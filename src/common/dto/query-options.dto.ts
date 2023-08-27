@@ -1,17 +1,10 @@
-import { Allow, IsBoolean, IsOptional, IsString } from 'class-validator';
-import {
-  FindOptions,
-  Includeable,
-  OrderItem,
-  WhereOptions,
-} from 'sequelize/types/model';
-import { Col, Fn, Literal } from 'sequelize/types/utils';
-import {
-  EnumFieldOptional,
-  NumberFieldOptional,
-} from '@decorators/field.decorators';
-import { Order } from '@constants/order';
-import { Transaction } from 'sequelize';
+import { IsBoolean, IsOptional } from "class-validator";
+import { FindOptions, Includeable, OrderItem, WhereOptions } from "sequelize/types/model";
+import { Col, Fn, Literal } from "sequelize/types/utils";
+import { EnumFieldOptional, NumberFieldOptional } from "@decorators/field.decorators";
+import { Order } from "@constants/order";
+
+// import { Transaction } from 'sequelize';
 
 export class QueryOptionDto implements FindOptions {
   @IsOptional()
@@ -21,14 +14,14 @@ export class QueryOptionDto implements FindOptions {
     minimum: 1,
     maximum: 50,
     default: 10,
-    int: true,
+    int: true
   })
   limit?: number = 10;
 
   @NumberFieldOptional({
     minimum: 1,
     default: 1,
-    int: true,
+    int: true
   })
   readonly page?: number = 1;
 
@@ -39,7 +32,7 @@ export class QueryOptionDto implements FindOptions {
 
   // TODO Bugs on Order
   @EnumFieldOptional(() => Order, {
-    default: [['createdAt', 'DESC']],
+    default: [["createdAt", "DESC"]]
   })
   readonly order?: Fn | Col | Literal | OrderItem[];
 
@@ -58,7 +51,7 @@ export class QueryOptionDto implements FindOptions {
   paranoid?: boolean;
 
   @IsOptional()
-  transaction?: Transaction;
+  transaction?: any;
 
   [key: string]: any;
 }

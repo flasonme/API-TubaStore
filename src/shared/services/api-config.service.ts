@@ -1,8 +1,8 @@
-import { Injectable } from '@nestjs/common';
-import { ConfigService } from '@nestjs/config';
-import type { SequelizeModuleOptions } from '@nestjs/sequelize';
-import { isNil } from 'lodash';
-import { operatorsAliases } from '@constants/sequelize.const';
+import { Injectable } from "@nestjs/common";
+import { ConfigService } from "@nestjs/config";
+import type { SequelizeModuleOptions } from "@nestjs/sequelize";
+import { isNil } from "lodash";
+import { operatorsAliases } from "@constants/sequelize.const";
 
 // import { UserSubscriber } from '../../entity-subscribers/user-subscriber';
 // import { SnakeNamingStrategy } from '../../snake-naming.strategy';
@@ -127,14 +127,5 @@ export class ApiConfigService {
     }
 
     return value;
-  }
-
-  private snakeToCamelCase(snakeCase: string): string {
-    const words = snakeCase.split('_');
-    return words
-      .map((word, index) =>
-        index === 0 ? word : word.charAt(0).toUpperCase() + word.slice(1),
-      )
-      .join('');
   }
 }
